@@ -3,8 +3,16 @@
     <img src="assets/imgs/omg-01.png" class="logo" alt="">
   </ion-toolbar>
 
-  <ion-toolbar>
+  <ion-toolbar *ngIf="!loggedIn">
     <button ion-button clear [navPush]="logPage">SIgn In</button>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="loggedIn">
+    <button ion-button icon-left clear small>
+      <ion-icon></ion-icon>
+      {{loggedIn}} Logged In
+    </button>
+    <button ion-button outline small>Sign Out</button>
   </ion-toolbar>
 </ion-header>
 
