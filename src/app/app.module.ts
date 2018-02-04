@@ -11,6 +11,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 export const firebaseConfig  = {
   apiKey: "AIzaSyDsPwMMtgcxge9SCh7Mku5CAegSVDmSz-g",
     authDomain: "eos-test-7fd05.firebaseapp.com",
@@ -29,7 +31,8 @@ export const firebaseConfig  = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
