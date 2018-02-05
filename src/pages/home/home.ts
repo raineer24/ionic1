@@ -5,6 +5,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 
+import { FCM } from "@ionic-native/fcm";
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
@@ -21,7 +23,7 @@ export class HomePage implements OnInit {
   logPage: any
   loggedIn: any; 
 
-  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, private userService: UserServiceProvider) {
+  constructor(public navCtrl: NavController, private afAuth: AngularFireAuth, private userService: UserServiceProvider, private fcm: FCM) {
     
   }
   ngOnInit() {
@@ -31,7 +33,8 @@ export class HomePage implements OnInit {
       if (user) {    
         this.loggedIn = this.userService.user = user.email;
       }
-    });
+    })
+    this.initFcm();
   }
   signOff(){
     this.userService.logOut();
@@ -42,6 +45,19 @@ export class HomePage implements OnInit {
     .then(result => {
       if(!result) {
         this.userService.displayAlert('Sorry', 'You must first register an account'); 
+      }
+    })
+  }
+
+  initFcm(){
+    this.fcm.onNotification().subscribe(data=> {
+      if(data.wasTapped){
+        console.log(data);
+        this.userService.displayAlert('Sent', data);
+      }
+      else {
+        console.log(data);
+        this.userService.displayAlert('Sent',data);
       }
     })
   }

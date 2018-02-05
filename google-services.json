@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "275536600000",
+    "firebase_url": "https://eos-test-7fd05.firebaseio.com",
+    "project_id": "eos-test-7fd05",
+    "storage_bucket": "eos-test-7fd05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275536600000:android:a0fa00d0eefb0c86",
+        "android_client_info": {
+          "package_name": "omg.store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275536600000-lib0ptvhvmiephanlltv6fkc9i9l5osu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2GFztBvpoY7gX7JNvbrxA7hmToE_InvI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
