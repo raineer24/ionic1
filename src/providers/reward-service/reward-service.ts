@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import Promise from 'promise-polyfill';
+
 /*
   Generated class for the RewardServiceProvider provider.
 
