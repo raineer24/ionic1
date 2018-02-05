@@ -12,7 +12,7 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
 export class HomePage implements OnInit {
   menuData = [
     { title: "Our Menu", pic: "assets/imgs/omg-02.png", pushPage: "MenuPage" },
-    { title: "Account", pic: "assets/imgs/omg-logo.png", pushPage: "AccountPage" },
+    { title: "Account", pic: "assets/imgs/omg-logo.png", pushPage: 'AccountPage' },
     { title: "About Us", pic: "assets/img/soup1.jpg", pushPage: "AboutPage" },
     { title: "Locations", pic: "assets/img/soup1.jpg", pushPage: "LocationPage" }
   ];
@@ -28,7 +28,7 @@ export class HomePage implements OnInit {
     this.logPage = "LoginPage";
 
     this.afAuth.auth.onAuthStateChanged(user => {
-      if (user) {
+      if (user) {    
         this.loggedIn = this.userService.user = user.email;
       }
     });
@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
     this.navCtrl.push(page)
     .then(result => {
       if(!result) {
-        this.userService.displayAlert('Sorry', 'You must first register an account');
+        this.userService.displayAlert('Sorry', 'You must first register an account'); 
       }
     })
   }
