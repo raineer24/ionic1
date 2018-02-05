@@ -67,13 +67,19 @@ export class RewardServiceProvider {
       rewardId: `REW-${count}`,
       amount: rewarded
     }
-
+ 
     this.storage.get(`${user}-rewards`)
     .then( returned => {
       if(!returned) {
         this.rewards.push(rewardObj);
         this.storage.set(`${user}-rewards`,this.rewards)
-        .then(res => console.log(user, `Awarded ${rewarded}`));
+        .then(res => this.displayReward(rewarded));
+      }
+      else {
+            this.rewards = returned;
+            this.rewards.push(rewardObj);
+            this.storage.set(`${user}-rewards`,this.rewards)
+            .then(res => this.displayReward(rewarded));
       }
     })
 
